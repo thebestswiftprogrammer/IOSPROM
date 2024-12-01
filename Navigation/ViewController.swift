@@ -1,19 +1,18 @@
+////
+////  ViewController.swift
+////  Navigation
+////
+////
 //
-//  ViewController.swift
-//  Navigation
+//import UIKit
 //
-//  Created by Виктория Вайнштейн on 26.11.2024.
+//class ViewController: UIViewController {
 //
-
-import UIKit
-
-class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-
-
-}
-
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        // Do any additional setup after loading the view.
+//    }
+//
+//
+//}
+//

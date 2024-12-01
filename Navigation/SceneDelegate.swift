@@ -2,7 +2,6 @@
 //  SceneDelegate.swift
 //  Navigation
 //
-//  Created by Виктория Вайнштейн on 26.11.2024.
 //
 
 import UIKit
