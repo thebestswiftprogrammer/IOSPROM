@@ -1,8 +1,4 @@
-//
-//  FeedViewController.swift
-//  Navigation
-//
-
+import SnapKit
 import UIKit
 
 final class FeedViewController: UIViewController {

@@ -7,9 +7,10 @@ import UIKit
 import iOSIntPackage
 
 class PostTableViewCell: UITableViewCell {
-    
-    private var viewCounter = 0
+    let imageProcessor = ImageProcessor()
 
+    private var viewCounter = 0
+    
     // MARK: Visual objects
     
     var postAuthor: UILabel = {
@@ -97,16 +98,30 @@ class PostTableViewCell: UITableViewCell {
     func configPostArray(post: Post) {
         postAuthor.text = post.author
         postDescription.text = post.description
-        postImage.image = UIImage(named: post.image)
         postLikes.text = "Likes: \(post.likes)"
         viewCounter = post.views
         postViews.text = "Views: \(viewCounter)"
+        
+        let imageName = post.image
+        if let image = UIImage(named: imageName) {
+            applyFilter(to: image) { [weak self] filteredImage in
+                DispatchQueue.main.async {
+                    self?.postImage.image = filteredImage
+                }
+            }
+        }
+    }
+
+    private func applyFilter(to image: UIImage, completion: @escaping (UIImage?) -> Void) {
+        imageProcessor.processImage(sourceImage: image, filter: .colorInvert) { filteredImage in
+            completion(filteredImage)
+        }
     }
     
     func incrementPostViewsCounter() {
         viewCounter += 1
         postViews.text = "Views: \(viewCounter)"
     }
+    
 }
-
 
